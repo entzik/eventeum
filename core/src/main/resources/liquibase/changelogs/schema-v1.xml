@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet id="1" author="ek">
+        <!-- contract event table -->
+        <createTable tableName="contract_event_details">
+            <column name="id" type="varchar(40)">
+                <constraints primaryKey="true" primaryKeyName="user_pk" nullable="false"/>
+            </column>
+            <column name="version" type="bigint"></column>
+            <column name="name" type="varchar(64)"></column>
+            <column name="filter_id" type="varchar(64)"></column>
+            <column name="transaction_hash" type="varchar(256)"></column>
+            <column name="log_index" type="bigint"></column>
+            <column name="block_number" type="bigint"></column>
+            <column name="block_hash" type="varchar(256)"></column>
+            <column name="address" type="varchar(256)"></column>
+            <column name="status" type="varchar(256)"></column>
+            <column name="signature" type="varchar(256)"></column>
+        </createTable>
+
+
+        <!-- contract event details table -->
+        <createTable tableName="contract_event_parameters">
+            <column name="id" type="varchar(40)">
+                <constraints primaryKey="true" primaryKeyName="group_pk" nullable="false"/>
+            </column>
+            <column name="version" type="bigint"></column>
+            <column name="indexed" type="bigint"></column>
+            <column name="type" type="varchar(128)"></column>
+            <column name="string_value" type="varchar(128)"></column>
+            <column name="long_value" type="bigint"></column>
+            <column name="owner_id" type="varchar(64)"></column>
+        </createTable>
+
+
+    </changeSet>
+</databaseChangeLog>
